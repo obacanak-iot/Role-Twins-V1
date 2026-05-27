@@ -1,6 +1,7 @@
 substitutions:
   device_name: role-twins-v1
   friendly_name: Role Twins V1
+  firmware_version: "1.0.0"
 
 esphome:
   name: ${device_name}
