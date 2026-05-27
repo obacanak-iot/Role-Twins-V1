@@ -65,6 +65,19 @@ text_sensor:
     lambda: |-
       return {"${firmware_version}"};
 
+sensor:
+  - platform: wifi_signal
+    name: "${friendly_name} WiFi Signal"
+    update_interval: 60s
+
+  - platform: uptime
+    name: "${friendly_name} Uptime"
+    update_interval: 60s
+
+button:
+  - platform: restart
+    name: "${friendly_name} Restart"
+
 uart:
   tx_pin: GPIO1
   rx_pin: GPIO3
