@@ -16,9 +16,6 @@ logger:
 http_request:
   verify_ssl: false
 
-http_request:
-  verify_ssl: false
-
 ota:
   - platform: esphome
 
