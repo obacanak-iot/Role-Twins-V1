@@ -12,10 +12,17 @@ esp8266:
 
 logger:
   baud_rate: 0
+  
+
+http_request:
 
 ota:
   - platform: esphome
-    password: "7bc4b341f891bfc0dfe4a3a48ed581f4"
+
+update:
+  - platform: http_request
+    name: "${friendly_name} Firmware Update"
+    source: "https://raw.githubusercontent.com/obacanak-iot/Role-Twins-V1/main/manifest.json"
 
 wifi:
   networks:
