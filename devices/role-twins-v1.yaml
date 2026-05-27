@@ -43,6 +43,15 @@ mqtt:
   discovery_prefix: homeassistant
   topic_prefix: role-twins-v1
 
+text_sensor:
+  - platform: template
+    name: "${friendly_name} Firmware Version"
+    id: firmware_version_sensor
+    icon: "mdi:package-variant"
+    update_interval: 60s
+    lambda: |-
+      return {"${firmware_version}"};
+
 uart:
   tx_pin: GPIO1
   rx_pin: GPIO3
