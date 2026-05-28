@@ -46,8 +46,8 @@ jobs:
           path: ./devices/.esphome/build/role-twins-v1/.pioenvs/role-twins-v1/firmware.factory.bin
 
        - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
+         uses: softprops/action-gh-release@v2
+         with:
           tag_name: build-${{ github.run_number }}
           name: Role Twins V1 Firmware Build ${{ github.run_number }}
           files: ./devices/.esphome/build/role-twins-v1/.pioenvs/role-twins-v1/firmware.factory.bin
