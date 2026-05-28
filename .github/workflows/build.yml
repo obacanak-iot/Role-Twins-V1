@@ -38,7 +38,7 @@ jobs:
           yaml-file: devices/role-twins-v1.yaml
 
       - name: Find Firmware
-        run: find . -name "*.bin"    
+        run: find . -name "*.bin"
 
       - name: Upload Firmware Artifact
         uses: actions/upload-artifact@v4
@@ -46,11 +46,11 @@ jobs:
           name: role-twins-v1-firmware
           path: ./devices/.esphome/build/role-twins-v1/.pioenvs/role-twins-v1/firmware.factory.bin
 
-       - name: Create GitHub Release
-         uses: softprops/action-gh-release@v2
-         with:
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
           tag_name: build-${{ github.run_number }}
           name: Role Twins V1 Firmware Build ${{ github.run_number }}
           files: ./devices/.esphome/build/role-twins-v1/.pioenvs/role-twins-v1/firmware.factory.bin
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
