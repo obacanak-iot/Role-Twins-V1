@@ -1,7 +1,7 @@
 substitutions:
   device_name: role-twins-v1
   friendly_name: Role Twins V1
-  firmware_version: "1.0.0"
+  firmware_version: "1.0.1"
 
 esphome:
   name: ${device_name}
@@ -9,7 +9,7 @@ esphome:
 
   project:
     name: obacanak.role_twins_v1
-    version: "1.0.0"
+    version: "1.0.1"
 
 esp8266:
   board: esp01_1m
