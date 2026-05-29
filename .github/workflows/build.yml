@@ -54,3 +54,33 @@ jobs:
           files: ./devices/.esphome/build/role-twins-v1/.pioenvs/role-twins-v1/firmware.factory.bin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update manifest.json
+        run: |
+          VERSION=$(grep 'firmware_version:' devices/role-twins-v1.yaml | head -1 | sed 's/.*"\(.*\)".*/\1/')
+          DOWNLOAD_URL="https://github.com/obacanak-iot/Role-Twins-V1/releases/download/build-${{ github.run_number }}/firmware.factory.bin"
+
+          cat > manifest.json <<EOF
+          {
+            "name": "Role Twins V1",
+            "version": "$VERSION",
+            "new_install_prompt_erase": false,
+            "builds": [
+              {
+                "chipFamily": "ESP8266",
+                "ota": {
+                  "path": "$DOWNLOAD_URL",
+                  "md5": ""
+                }
+              }
+            ]
+          }
+          EOF
+
+      - name: Commit manifest.json
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add manifest.json
+          git commit -m "Update manifest.json" || echo "No changes to commit"
+          git push
