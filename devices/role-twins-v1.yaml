@@ -109,6 +109,7 @@ switch:
     name: "${friendly_name} ROLE1"
     id: role1
     optimistic: true
+    restore_mode: RESTORE_DEFAULT_OFF
 
     turn_on_action:
       - uart.write: [0xA0, 0x01, 0x01, 0xA2]
@@ -120,6 +121,7 @@ switch:
     name: "${friendly_name} ROLE2"
     id: role2
     optimistic: true
+    restore_mode: RESTORE_DEFAULT_OFF
 
     turn_on_action:
       - uart.write: [0xA0, 0x02, 0x01, 0xA3]
