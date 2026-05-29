@@ -44,21 +44,21 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: role-twins-v1-firmware
-          path: ./devices/.esphome/build/role-twins-v1/.pioenvs/role-twins-v1/firmware.factory.bin
+          path: ./devices/.esphome/build/role-twins-v1/.pioenvs/role-twins-v1/firmware.ota.bin
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: build-${{ github.run_number }}
           name: Role Twins V1 Firmware Build ${{ github.run_number }}
-          files: ./devices/.esphome/build/role-twins-v1/.pioenvs/role-twins-v1/firmware.factory.bin
+          files: ./devices/.esphome/build/role-twins-v1/.pioenvs/role-twins-v1/firmware.ota.bin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update manifest.json
         run: |
           VERSION=$(grep 'firmware_version:' devices/role-twins-v1.yaml | head -1 | sed 's/.*"\(.*\)".*/\1/')
-          DOWNLOAD_URL="https://github.com/obacanak-iot/Role-Twins-V1/releases/download/build-${{ github.run_number }}/firmware.factory.bin"
+          DOWNLOAD_URL="https://github.com/obacanak-iot/Role-Twins-V1/releases/download/build-${{ github.run_number }}/firmware.ota.bin"
 
           cat > manifest.json <<EOF
           {
