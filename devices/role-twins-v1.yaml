@@ -67,6 +67,19 @@ text_sensor:
     lambda: |-
       return {"${firmware_version}"};
 
+  - platform: wifi_info
+    ip_address:
+      name: "${friendly_name} IP"
+
+    ssid:
+      name: "${friendly_name} SSID"
+
+    bssid:
+      name: "${friendly_name} BSSID"
+
+    mac_address:
+      name: "${friendly_name} MAC"
+
 sensor:
   - platform: wifi_signal
     name: "${friendly_name} WiFi Signal"
