@@ -83,6 +83,9 @@ button:
   - platform: safe_mode
     name: "${friendly_name} Safe Mode"
 
+  - platform: factory_reset
+    name: "${friendly_name} Factory Reset"
+
 uart:
   tx_pin: GPIO1
   rx_pin: GPIO3
