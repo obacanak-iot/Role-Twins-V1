@@ -47,6 +47,10 @@ captive_portal:
 web_server:
   port: 80
 
+api:
+
+improv_serial:
+
 mqtt:
   broker: "192.168.1.53"
   username: "obacanak"
