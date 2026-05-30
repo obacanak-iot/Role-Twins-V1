@@ -1,12 +1,12 @@
 {
   "name": "Role Twins V1",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "new_install_prompt_erase": false,
   "builds": [
     {
       "chipFamily": "ESP8266",
       "ota": {
-        "path": "https://github.com/obacanak-iot/Role-Twins-V1/releases/download/build-37/firmware.ota.bin",
+        "path": "https://github.com/obacanak-iot/Role-Twins-V1/releases/download/build-38/firmware.ota.bin",
         "md5": ""
       }
     }
