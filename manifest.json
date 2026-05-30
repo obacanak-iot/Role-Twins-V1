@@ -6,7 +6,7 @@
     {
       "chipFamily": "ESP8266",
       "ota": {
-        "path": "https://github.com/obacanak-iot/Role-Twins-V1/releases/download/build-38/firmware.ota.bin",
+        "path": "https://github.com/obacanak-iot/Role-Twins-V1/releases/download/build-39/firmware.ota.bin",
         "md5": ""
       }
     }
