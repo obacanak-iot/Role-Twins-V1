@@ -1,7 +1,10 @@
 substitutions:
   device_name: role-twins-v1
   friendly_name: OBA Role Twins V1
-  firmware_version: "1.0.6"
+  firmware_version: "1.0.7"
+  device_model: "Role Twins V1"
+  manufacturer: "OBA"
+  pcb_revision: "V1.0"
 
 esphome:
   name: ${device_name}
@@ -9,7 +12,7 @@ esphome:
 
   project:
     name: oba.role_twins_v1
-    version: "1.0.6"
+    version: "1.0.7"
 
 esp8266:
   board: esp01_1m
@@ -29,6 +32,7 @@ update:
   - platform: http_request
     name: "${friendly_name} Firmware Update"
     source: "http://192.168.1.53:8123/local/role-twins-v1/manifest.json"
+    update_interval: 1min
 
 wifi:
   networks:
@@ -66,6 +70,27 @@ text_sensor:
     update_interval: 60s
     lambda: |-
       return {"${firmware_version}"};
+
+  - platform: template
+    name: "${friendly_name} Model"
+    icon: "mdi:chip"
+    update_interval: 60s
+    lambda: |-
+      return {"${device_model}"};
+
+  - platform: template
+    name: "${friendly_name} Manufacturer"
+    icon: "mdi:factory"
+    update_interval: 60s
+    lambda: |-
+      return {"${manufacturer}"};
+
+  - platform: template
+    name: "${friendly_name} PCB Revision"
+    icon: "mdi:developer-board"
+    update_interval: 60s
+    lambda: |-
+      return {"${pcb_revision}"};
 
   - platform: wifi_info
     ip_address:
