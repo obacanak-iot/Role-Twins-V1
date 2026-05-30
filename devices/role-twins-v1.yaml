@@ -28,7 +28,7 @@ ota:
 update:
   - platform: http_request
     name: "${friendly_name} Firmware Update"
-    source: "https://raw.githubusercontent.com/obacanak-iot/Role-Twins-V1/main/manifest.json"
+    source: "http://192.168.1.53:8123/local/role-twins-v1/manifest.json"
 
 wifi:
   networks:
